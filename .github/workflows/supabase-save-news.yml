@@ -1,0 +1,18 @@
+name: Save news
+description: |
+  This GitHub Actions workflow calls a save news every 30 minutes to fetch and save news articles.
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  call-function:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call save news
+        run: |
+          curl -X POST ${{ secrets.SAVE_URL }} \
+            -H "Authorization: Bearer ${{ secrets.KEY }}" \
+            -H "Content-Type: application/json"
