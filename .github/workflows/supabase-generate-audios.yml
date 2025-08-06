@@ -1,4 +1,4 @@
-name: Save news
+name: Generate audios
 description: |
   This GitHub Actions workflow calls a generate audios of news every 5 minutes.
 
